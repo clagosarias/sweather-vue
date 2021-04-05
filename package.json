@@ -2,14 +2,33 @@
   "name": "sweather-vue",
   "version": "0.0.0",
   "scripts": {
+    "build": "vite build",
+    "test:unit": "vue-cli-service test:unit",
     "dev": "vite",
-    "build": "vite build"
+    "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "vue": "^3.0.4"
   },
   "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "^4.5.12",
     "@vue/compiler-sfc": "^3.0.4",
-    "vite": "^1.0.0-rc.13"
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-vue": "^7.8.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "typescript": "~3.9.3",
+    "vite": "^1.0.0-rc.13",
+    "vue-jest": "^5.0.0-0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,vue}": "eslint --fix"
   }
 }
